@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 /**
  * Clase principal del proyecto
- * @author angievig
+ * @author Mariana Agudelo Salazar
  * @version 1.0
  * @since August 2023
  */

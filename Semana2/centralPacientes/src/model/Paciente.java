@@ -4,7 +4,7 @@ import java.util.Date;
 
 /**
  * Clase que representa un paciente, ejemplo simplificado del caso de estudio del texto
- * @author angievig
+ * @author Mariana Agudelo Salazar
  * @version 1.0
  * @since August 2023
  */
@@ -24,7 +24,22 @@ public class Paciente {
 	private String name;
 	
 	private Paciente siguiente;
-	
-	
+
+
+	public int getCodigo() {
+		return codigo;
+	}
+
+	public String getName(){
+		return name;
+	}
+
+	public Paciente getSiguiente() {
+		return siguiente;
+	}
+
+	public void setSiguiente(Paciente siguiente){
+		this.siguiente=siguiente;
+	}
 
 }
