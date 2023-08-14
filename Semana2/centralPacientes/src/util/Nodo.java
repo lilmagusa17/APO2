@@ -12,7 +12,6 @@ public class Nodo {
      */
     private Nodo siguiente;
 
-
     /**
      * constructor
      * @param c es un objeto, el contenido del nodo
@@ -37,16 +36,14 @@ public class Nodo {
         return siguiente;
     }
 
-
     public void setSiguiente(Nodo siguiente) {
         this.siguiente = siguiente;
     }
+
     @Override
     public String toString() {
         return "Nodo: {" + contenido.toString()+ "}";
     }
-
-
 
 
 }

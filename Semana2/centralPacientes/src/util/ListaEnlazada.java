@@ -10,8 +10,6 @@ public class ListaEnlazada implements Lista{
      */
     private int numElementos;
 
-
-
     public ListaEnlazada() {
         primero= null;
         numElementos = 0;
@@ -27,8 +25,16 @@ public class ListaEnlazada implements Lista{
 
     @Override
     public void agregarPrimero(Object n) {
-        // TODO conectar el nuevo nodo y actualizar la cantidad de pacientes
-
+        Nodo actual= primero;
+        Nodo nuevo = new Nodo(n);
+        if(this.esVacia()) { // si la lista es vacia el nuevo es el primero
+            primero = nuevo; //asignacion de la referencia del nuevo nodo al primero
+            numElementos++;
+        }else {
+            nuevo.setSiguiente(primero);
+            primero = nuevo;
+            numElementos++;
+        }
     }
 
     @Override
@@ -38,16 +44,15 @@ public class ListaEnlazada implements Lista{
 
         if (primero ==null) { //Si la lista es vacIa el nuevo es el primero
             primero = nuevo;
+            numElementos++;
 
         }else { //Se encuentra el ultimo nodo
             while(actual.getSiguiente() != null) {
                 actual=actual.getSiguiente();
             }
             actual.setSiguiente(nuevo);
-            //FIXME incrementar la cantidad de elementos cada que se agrega un nodo
+            numElementos++;
         }
-
-
 
     }
 
@@ -57,7 +62,7 @@ public class ListaEnlazada implements Lista{
         Nodo actual= primero;
 
         if (primero !=null) { //Si la lista es no es vacIA se hace el recorrido
-
+//FIXME Preguntar a la profe lo de que la condicion resultaria como always false
             while(actual.getSiguiente() != null && found!=null) {
                 if (actual.getContenido().equals(clave))
                     found = actual.getContenido();
@@ -75,29 +80,33 @@ public class ListaEnlazada implements Lista{
 
     @Override
     public void eliminar(Object clave) {
-        // TODO buscar el nodo por clave y luego desconectar el nodo
+        // FIXME desconectar el nodo encontrado y conectar el anterior a este con el que sigue
+      Nodo actual= primero;
+
+      while(primero != null){
+            if(buscar(clave) == primero.getContenido()) {
+                primero = primero.getSiguiente();
+                numElementos--;
+            }
+            primero = primero.getSiguiente();
+      }
 
     }
 
-    @Override
     public String toString() {
-        String out="size: "+numElementos + " [";
-        Nodo actual= primero;
+        String out = "size: " + numElementos + " [";
+        Nodo actual = primero;
 
-        if (primero !=null) { //si la lista no es vacia
-            while(actual.getSiguiente() != null) {
-                out+= actual.toString() + " ";
-                actual=actual.getSiguiente();
+        if (primero != null) { //si la lista no es vacia
+            while (actual.getSiguiente() != null) {
+                out += actual.toString() + " ";
+                actual = actual.getSiguiente();
             }
-            out+= actual.toString(); //se incluye el ultimo
+            out += actual.toString(); //se incluye el ultimo
 
         }//Si la lista es vacIa no se hace nada
 
-
-
         return out + "]";
     }
-
-
 
 }
