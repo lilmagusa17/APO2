@@ -45,7 +45,6 @@ public class ListaEnlazada implements Lista{
         if (primero ==null) { //Si la lista es vacIa el nuevo es el primero
             primero = nuevo;
             numElementos++;
-
         }else { //Se encuentra el ultimo nodo
             while(actual.getSiguiente() != null) {
                 actual=actual.getSiguiente();
@@ -80,16 +79,31 @@ public class ListaEnlazada implements Lista{
 
     @Override
     public void eliminar(Object clave) {
-        // FIXME desconectar el nodo encontrado y conectar el anterior a este con el que sigue
-      Nodo actual= primero;
 
-      while(primero != null){
-            if(buscar(clave) == primero.getContenido()) {
-                primero = primero.getSiguiente();
+        if (primero != null) {
+            Nodo actual, anterior;
+            anterior = primero;
+            actual = primero.getSiguiente();
+            boolean found = false;
+
+            if (primero.getContenido().equals(clave)) { //para eliminar el primero
+                primero = actual;
                 numElementos--;
+            } else {
+                //Recorrido para encontrar un nodo diferente al primero
+                while (actual != null && !found) {
+                    if (actual.getContenido().equals(clave)) {
+                        found = true;
+                        anterior.setSiguiente(actual.getSiguiente());
+                        actual.setSiguiente(null);
+                        numElementos--;
+                    }
+                    actual = actual.getSiguiente();
+                    anterior = anterior.getSiguiente();
+                }
             }
-            primero = primero.getSiguiente();
-      }
+            //FIXME: Que pasa si hay una lista vacia
+        }
 
     }
 

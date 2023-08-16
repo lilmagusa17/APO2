@@ -69,9 +69,10 @@ public class MainCentralPacientes {
             case 3:
             	eliminarPaciente();
                 break;
-            case 4:
+            case 4: atenderPaciente();
                 break;
-            case 5:
+            case 5: consultarTurno();
+                break;
 
         }
 
@@ -106,6 +107,24 @@ public class MainCentralPacientes {
 		
 	}
 
+    private void atenderPaciente() {
+    	System.out.println("Digite el código del paciente que desea atender");
+    	int code = sc.nextInt();
+        System.out.println("Digite la posición del paciente que desea atender");
+        int pos = sc.nextInt();
+    	String output = central.atenderPaciente(code, pos);
+    	System.out.println(output);
+
+    }
+
+    private void consultarTurno() {
+    	System.out.println("Digite el código del paciente que desea consultar");
+    	int code = sc.nextInt();
+    	String output = central.consultarTurno(code);
+    	System.out.println(output);
+
+    }
+
 
 	/**
      * Metodo que muestra el menu de la aplicaciOn, a este metod hace falta implementar la validaciOn
@@ -118,8 +137,8 @@ public class MainCentralPacientes {
                 "(1) agregar paciente\n" +
                 "(2) buscar paciente\n" +
                 "(3) eliminar paciente\n"+
-                "(4) opciOn 4\n"+
-                "(5) opciOn 5\n"+
+                "(4) ingresar a un paciente para atenciOn\n"+
+                "(5) consultar turno de un paciente\n"+
                 "(0) Para salir"
 
         );

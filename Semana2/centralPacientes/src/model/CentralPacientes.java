@@ -9,10 +9,12 @@ import util.ListaEnlazada;
  */
 public class CentralPacientes {
 	ListaEnlazada pacientes;
+	ListaEnlazada turnos;
 
 
 	public CentralPacientes() {
 		pacientes = new ListaEnlazada();
+		turnos = new ListaEnlazada();
 	}
 
 
@@ -60,5 +62,39 @@ public class CentralPacientes {
 
 	}
 
+	public String consultarTurno(int code){
+		String out= "";
+
+		Paciente p = (Paciente)turnos.buscar(code);
+		while (p!=null) {
+			out+= p.toString() + "\n";
+			p = (Paciente)turnos.buscar(code);
+		}
+		return out;
+	}
+
+
+	//FIXME i have an idea but idk
+	public String atenderPaciente(int code, int pos) {
+		String out= "";
+		Paciente p = (Paciente)turnos.buscar(code);
+		switch (pos) {
+			case 1:
+				if (p==null){
+					turnos.agregarPrimero(new Paciente(code));
+					out= "El paciente con cOdigo " + code + " fue correctamente agregado";
+				}
+				break;
+
+
+			case 2:
+				break;
+
+
+		}
+
+		return out;
+
+	}
 
 }
