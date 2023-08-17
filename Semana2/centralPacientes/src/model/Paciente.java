@@ -55,12 +55,12 @@ public class Paciente implements Cloneable{
 	}
 
 	@Override
-	public boolean equals(Object obj){
-		boolean out =false;
-		out = (int)obj==this.codigo;
+	public boolean equals(Object obj) {
+		boolean out= false;
+
+		out= (int)obj == this.codigo;
 		return out;
 	}
-
 
 
 }

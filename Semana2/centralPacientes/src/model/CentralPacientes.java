@@ -50,7 +50,7 @@ public class CentralPacientes {
 		Paciente p = (Paciente)pacientes.search(code);
 
 		if (p!=null) {
-			pacientes.delete(p);
+			pacientes.delete(p.getCodigo());
 			out= "El paciente con cOdigo " + code + " fue correctamente eliminado";
 		}else {
 			out= "Error: el paciente con cOdigo " + code + " no está registrado";
@@ -70,8 +70,6 @@ public class CentralPacientes {
 		return out;
 	}
 
-
-	//FIXME i have an idea but idk
 	public String atenderPaciente(int code, int pos) {
 		String out= "";
 		Paciente p = (Paciente)turnos.search(code);

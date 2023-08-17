@@ -1,6 +1,6 @@
 package util;
 
-public class SingleLinkedList implements Lista{
+public class SingleLinkedList implements Lista {
     /**
      * referencia al primer elemento de la lista
      */
@@ -26,12 +26,12 @@ public class SingleLinkedList implements Lista{
 
     @Override
     public void addFirst(Object n) {
-        NodeSingle current= first;
+        NodeSingle current = first;
         NodeSingle newNode = new NodeSingle(n);
-        if(this.isEmpty()) { // si la lista es vacia el newNode es el primero
+        if (this.isEmpty()) { // si la lista es vacia el newNode es el primero
             first = newNode; //asignacion de la referencia del newNode nodo al primero
             numItems++;
-        }else {
+        } else {
             newNode.setSiguiente(first);
             first = newNode;
             numItems++;
@@ -40,15 +40,15 @@ public class SingleLinkedList implements Lista{
 
     @Override
     public void addLast(Object content) {
-        NodeSingle current= first;
+        NodeSingle current = first;
         NodeSingle newNode = new NodeSingle(content);
 
-        if (first ==null) { //Si la lista es vacIa el nuevo es el primero
+        if (first == null) { //Si la lista es vacIa el nuevo es el primero
             first = newNode;
             numItems++;
-        }else { //Se encuentra el ultimo nodo
-            while(current.getSiguiente() != null) {
-                current=current.getSiguiente();
+        } else { //Se encuentra el ultimo nodo
+            while (current.getSiguiente() != null) {
+                current = current.getSiguiente();
             }
             current.setSiguiente(newNode);
             numItems++;
@@ -58,17 +58,17 @@ public class SingleLinkedList implements Lista{
 
     @Override
     public Object search(Object clave) {
-        Object found =  null;
-        NodeSingle current= first;
+        Object found = null;
+        NodeSingle current = first;
 
-        if (first !=null) { //Si la lista es no es vacIA se hace el recorrido
-            while(current.getSiguiente() != null && found==null) {
+        if (first != null) { //Si la lista es no es vacIA se hace el recorrido
+            while (current.getSiguiente() != null && found == null) {
                 if (current.getContent().equals(clave))
                     found = current.getContent();
-                current=current.getSiguiente();
+                current = current.getSiguiente();
             }
             //si se llegO al ultimo nodo y aun no se encuentra la clave
-            if (current.getSiguiente()==null && found==null) {
+            if (current.getSiguiente() == null && found == null) {
                 if (current.getContent().equals(clave)) //buscando en el ultimo nodo
                     found = current.getContent();
             }
@@ -79,31 +79,29 @@ public class SingleLinkedList implements Lista{
 
     @Override
     public void delete(Object clave) {
-//FIXME Hay una referencia mal hecha que genera error.
         if (first != null) {
-            NodeSingle current, previous;
-            previous = first;
-            current = first.getSiguiente();
-            //boolean found = false;
+            NodeSingle actual, anterior;
+            anterior = first;
+            actual = first.getSiguiente();
+            boolean found = false;
 
-            if(first ==null) { //para eliminar el primero
-                //ERROR LIST EMPTY
-            } else if (first.getContent().equals(clave)){ //para eliminar el primero
-                first = first.getSiguiente();
+            if (first.getContent().equals(clave)) { //quiero eliminar el primero
+                first = actual;
                 numItems--;
             } else {
-                while (current.getSiguiente() !=null){
-                    if (current.getContent().equals(clave)) {
-                        previous.setSiguiente(current.getSiguiente());
+                //Se hace el recorrido hasta encontrar el nodo
+                while (actual != null && !found) {
+                    if (actual.getContent().equals(clave)) {
+                        found = true;
+                        anterior.setSiguiente(actual.getSiguiente());
+                        actual.setSiguiente(null);
                         numItems--;
-                    } else {
-                        previous = current;
-                        current = current.getSiguiente();
                     }
+                    actual = actual.getSiguiente();
+                    anterior = anterior.getSiguiente();
                 }
             }
         }
-
     }
 
     public void ingresarAtencionPaciente(Object code){
