@@ -99,10 +99,7 @@ public class MainCentralPacientes {
 	private void agregarPaciente() {
 		System.out.println("Digite el código del paciente que desea crear");
     	int code = sc.nextInt();
-        System.out.println("Escribe el nombre del paciente:");
-        String name= sc.nextLine();
-        Date fechaNacimiento = new Date();
-    	String output = central.agregarPaciente(code, name, fechaNacimiento);
+    	String output = central.agregarPaciente(code);
     	System.out.println(output);
 		
 	}

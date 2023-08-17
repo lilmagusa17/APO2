@@ -1,9 +1,9 @@
 package util;
 
 public interface Lista {
-    public boolean esVacia();
-    public void agregarPrimero(Object n);
-    public void agregarUltimo(Object n);
-    public Object buscar(Object clave);
-    public void eliminar(Object clave);
+    public boolean isEmpty();
+    public void addFirst(Object n);
+    public void addLast(Object n);
+    public Object search(Object clave);
+    public void delete(Object clave);
 }
