@@ -1,31 +1,53 @@
 package util;
 
-public class NodeDouble extends NodeSingle{
+public class NodeDouble {
 
     /**
      * referencia para enlazar el anterior
      */
-    private NodeDouble anterior;
+    private NodeDouble prev;
+    private NodeDouble next;
+
+    private Object content;
 
     /**
      * constructor
      * @param c es un objeto, el contenido del nodo
      */
     public NodeDouble(Object c) {
-        super(c);
-        anterior = null;
+        content = c;
+        next = null;
     }
 
-    public NodeDouble getAnterior() {
-        return anterior;
+    public NodeDouble getPrev() {
+        return prev;
     }
 
-    public void setAnterior(NodeDouble anterior) {
-        this.anterior = anterior;
+    public void setPrev(NodeDouble prev) {
+        this.prev = prev;
     }
 
     @Override
     public String toString() {
-        return "Nodo: {" + getContent().toString()+ "}";
+        return "Node: {" + content.toString()+ "}";
     }
+
+    public Object getContent() {
+        return content;
+    }
+
+
+    public void setContent(Object p) {
+        content = p;
+    }
+
+
+    public NodeDouble getNext() {
+        return next;
+    }
+
+    public void setNext(NodeDouble next) {
+        this.next = next;
+    }
+
 }
