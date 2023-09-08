@@ -27,20 +27,29 @@ public class LinkedListRecursive implements Lista{
 
     @Override
     public Object search(Object clave) {
-        //recursive
-
         return null;
     }
 
-    public Object searchNodeSequence(NodeDouble n, Object clave){
+    public String searchNode() {
+        String out = "";
+        if(isEmpty()){
+            out+= "]";
+        }else{
+            out+= searchNodeSequence(first) + "]";
+        }
+        return out;
+
+    }
+
+    public Object searchNodeSequence(NodeDouble n, Object search){
         Object out = null;
         if(n==null){
             out = null;
         }else{
-            if(n.getContent().equals(clave)){
+            if(n.getContent().equals(search)){
                 out = n.getContent();
             }else{
-                out = searchNodeSequence(n.getNext(), clave);
+                out = searchNodeSequence(n.getNext(), search);
             }
         }
         return out;
