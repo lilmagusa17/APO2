@@ -1,6 +1,6 @@
 package src.model;
 
-public class Student implements Comparable {
+public class Student implements Comparable<Student> {
 
     private int age;
     private String name;
@@ -31,10 +31,10 @@ public class Student implements Comparable {
     }
 
     @Override
-    public int compareTo(Object other) {
+    public int compareTo(Student other) {
         int x = -1;
 
-        if (other instanceof Student) {
+        if (other!=null) {
             int ageO = ((Student) other).getAge();
             if (age > ageO)
                 x = 1;
