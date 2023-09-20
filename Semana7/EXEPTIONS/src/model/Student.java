@@ -6,6 +6,7 @@ public class Student {
 	
 	public Student(String identifier, int totalGrades) {
 		grades = new double[totalGrades];
+		id = identifier;
 	}
 	
 	public void setGrade(int gradeNumber, double grade) throws ArrayIndexOutOfBoundsException{		

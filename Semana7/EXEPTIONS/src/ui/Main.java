@@ -14,8 +14,13 @@ public class Main {
 		System.out.println("Welcome to course management");
 		
 		System.out.print("Please enter the total grades amount along the semester: ");
-		int totalGradesAmount = Integer.parseInt(sc.nextLine()); 
-		
+		int totalGradesAmount = 0;
+		try {
+			totalGradesAmount = Integer.parseInt(sc.nextLine());
+		}catch(NumberFormatException e) {
+			System.out.println("Please enter a valid number");
+		}
+
 		System.out.print("Please enter the course enrollment capacity: ");
 		int quota = Integer.parseInt(sc.nextLine());
 		
