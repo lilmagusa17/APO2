@@ -1,13 +1,14 @@
 package model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ContactBook {
 
-    List<Contact> contacts;
+    ArrayList<Contact> contacts;
 
     public ContactBook() {
-
+        contacts = new ArrayList<>();
     }
 
     public boolean addContact(String email, String phone) {
@@ -27,7 +28,7 @@ public class ContactBook {
     }
 
 
-    public List<Contact> getContacts() {
+    public ArrayList<Contact> getContacts() {
 
         return null;
     }
