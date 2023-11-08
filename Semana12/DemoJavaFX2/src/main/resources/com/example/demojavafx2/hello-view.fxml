@@ -8,14 +8,13 @@
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TableColumn?>
-
 <VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.example.demojavafx.control.HelloController">
+      fx:controller="com.example.demojavafx2.control.HelloController">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
     </padding>
 
-    <TableView fx:id="userTableView">
+    <TableView fx:id="studentsTableView">
         <columns>
             <TableColumn fx:id="nameTC" text="Name"></TableColumn>
             <TableColumn fx:id="idTC" text="Id"></TableColumn>
@@ -23,7 +22,7 @@
         </columns>
     </TableView>
 
-    <Button text="ADD USER" onAction="#onAddUser"/>
+    <Button text="Agregar Estudiante" onAction="#onAddStudent"/>
 
 
 </VBox>

@@ -11,7 +11,7 @@ public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
 
-        openWindow("hello-view.fxml");
+        openWindow("start-view.fxml");
 
     }
 
@@ -20,7 +20,7 @@ public class HelloApplication extends Application {
             FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource(fxml));
             Scene scene = new Scene(fxmlLoader.load(), 683, 384);
             Stage stage = new Stage();
-            stage.setTitle("USER'S MANAGER APP");
+            stage.setTitle("CAJA FUERTE");
             stage.setScene(scene);
               /*
                 stage.setX(0);
@@ -29,6 +29,7 @@ public class HelloApplication extends Application {
             stage.show();
         }catch (Exception e){
             System.out.println("Error: " + e.getMessage());
+            e.printStackTrace();
         }
 
     }

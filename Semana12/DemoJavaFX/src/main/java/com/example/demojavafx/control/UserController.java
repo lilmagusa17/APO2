@@ -1,15 +1,27 @@
 package com.example.demojavafx.control;
 
 import com.example.demojavafx.model.User;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 import java.util.ArrayList;
 
 public class UserController {
 
-    private ArrayList<User> users;
+    //singleton pattern
+    private static UserController instance;
 
-    public UserController() {
-        users = new ArrayList<>();
+    public static UserController getInstance(){
+        if(instance == null){
+            instance = new UserController();
+        }
+        return instance;
+    }
+
+    private ObservableList<User> users;
+
+    private UserController() {
+        users = FXCollections.observableArrayList();
     }
 
     public void addUser(String name, String id, int years){
@@ -23,5 +35,10 @@ public class UserController {
             msj += users.get(i) + "\n";
         }
         return msj;
+    }
+
+    public ObservableList<User> getUsers() {
+        users.add(new User("Juan", "123", 20));
+        return users;
     }
 }

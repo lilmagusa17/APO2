@@ -1,4 +1,4 @@
-package com.example.demojavafx;
+package com.example.demojavafx2;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -10,25 +10,20 @@ import java.io.IOException;
 public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-
         openWindow("hello-view.fxml");
-
     }
 
     public static void openWindow(String fxml){
-        try{
+        try {
             FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource(fxml));
-            Scene scene = new Scene(fxmlLoader.load(), 683, 384);
+            Scene scene = new Scene(fxmlLoader.load(), 320, 240);
             Stage stage = new Stage();
-            stage.setTitle("USER'S MANAGER APP");
+            stage.setTitle("Hello!");
             stage.setScene(scene);
-              /*
-                stage.setX(0);
-                stage.setY(0);
-               */
             stage.show();
-        }catch (Exception e){
-            System.out.println("Error: " + e.getMessage());
+        }
+        catch (IOException ex){
+            ex.printStackTrace();
         }
 
     }

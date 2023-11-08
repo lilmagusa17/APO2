@@ -1,14 +1,14 @@
-package com.example.demojavafx.model;
+package com.example.demojavafx2.model;
 
-public class User {
+public class Student {
     private String name;
     private String id;
     private int age;
 
-    public User(String name, String id, int years) {
+    public Student(String name, String id, int age) {
         this.name = name;
         this.id = id;
-        this.age = years;
+        this.age = age;
     }
 
     public String getName() {
@@ -40,7 +40,7 @@ public class User {
         return "{" +
                 "name='" + name + '\'' +
                 ", id='" + id + '\'' +
-                ", years=" + age +
+                ", age=" + age +
                 '}';
     }
 }
